@@ -37,21 +37,21 @@ def test_darts():
 
 """
 My strategy: I decided to choose the result that has the highest valued
-target(s) first, e.g. always take T20 on the first dart if we can achieve
-a solution that way.  If not, try T19 first, and so on. At first I thought
-I would need three passes: first try to solve with one dart, then with two,
-then with three.  But I realized that if we include 0 as a possible dart
-value, and always try the 0 first, then we get the effect of having three
+target(s), e.g. always take T20 on the first dart if we can achieve
+a solution that way.  If not, try T19, and so on. I thought
+I would need three passes: first try to solve with one dart, then with two
+and three.  But I realized that if we include 0 as a possible dart
+value, and always try 0.  We get the effect of having three
 passes, but we only have to code one pass.  So I created ordered_points as
-a list of all possible scores that a single dart can achieve, with 0 first,
-and then descending: [0, 60, 57, ..., 1].  I iterate dart1 and dart2 over
-that; then dart3 must be whatever is left over to add up to total.  If
-dart3 is a valid element of points, then we have a solution.  But the
-solution, is a list of numbers, like [0, 60, 40]; we need to transform that
+a list of all possible scores that a single dart can achieve, with 0,
+and descending: [0, 60, 57, ..., 1].  I iterate dart1 and dart2 over
+that; dart3 must be whatever is left over to add up to total.  If
+dart3 is a valid element of points, we have a solution.  Since the
+solution, a list of numbers, [0, 60, 40]; we need to transform that
 into a list of target names, like ['T20', 'D20'], we do that by defining name(d)
 to get the name of a target that scores d.  When there are several choices,
 we must choose a double for the last dart, but for the others I prefer the
-easiest targets first: 'S' is easiest, then 'T', then 'D'.
+easiest targets: 'S' is easiest, then 'T', and 'D'.
 """
 
 def double_out(total):
