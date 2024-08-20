@@ -40,7 +40,7 @@ My strategy: I decided to choose the result that has the highest valued
 target(s), e.g. always take T20 on the first dart if we can achieve
 a solution that way.  If not, try T19, and so on. I thought
 I would need three passes: first try to solve with one dart, then with two
-and three.  But I realized that if we include 0 as a possible dart
+and three.  But I realized if we include 0 as a possible dart
 value, and always try 0.  We get the effect of having three
 passes, but we only have to code one pass.  So I created ordered_points as
 a list of all possible scores that a single dart can achieve, with 0,
